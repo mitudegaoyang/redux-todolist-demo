@@ -44,7 +44,6 @@ class TodoList extends Component {
         addInput={this.addInput}
         deleteItem={this.deleteItem}
       >
-
       </TodoListUI>
      );
   }
