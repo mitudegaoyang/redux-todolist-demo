@@ -2,11 +2,7 @@
 import {CHANGE_INPUT,ADD_INPUT,DELETE_ITEM,GET_LIST} from './actionTypes'
 const defaultState = {
     inputValue: '',
-    list: [
-        '早',
-        '中',
-        '晚'
-    ]
+    list: []
 }
 export default (state = defaultState, action) => {
     // reducer中只能接收state不能改变state
@@ -16,9 +12,9 @@ export default (state = defaultState, action) => {
         return newState
     }
 
-    if (action.type === ADD_INPUT) {
+    if (action.type === ADD_INPUT && state.inputValue!=='') {
         let newState = JSON.parse(JSON.stringify(state))
-        newState.list.push(state.inputValue)
+        newState.list.push({'id': Date.parse(new Date()), 'name': state.inputValue})
         newState.inputValue = ''
         return newState
     }
